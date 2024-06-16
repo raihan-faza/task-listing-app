@@ -13,7 +13,10 @@ class TaskController extends Controller
      */
     public function index()
     {
-        //
+        $task = Task::latest()->paginate(5);
+        return view('index', [
+            'tasks' => $task
+        ]);
     }
 
     /**
@@ -21,7 +24,7 @@ class TaskController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**
@@ -45,7 +48,7 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
-        //
+        return view('update');
     }
 
     /**
